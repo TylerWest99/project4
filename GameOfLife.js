@@ -104,7 +104,7 @@ class GameOfLife {
 				    continue;
 			    }
 
-			    if(grid[currentRow][currentCol] == '1'){
+			    if(this.grid[currentRow][currentCol] == '1'){
 				    neighbors++;
 			    }
 		    }
