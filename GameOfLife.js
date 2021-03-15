@@ -92,19 +92,20 @@ class GameOfLife {
                 numNeighbors = this.getNeighbors(i,j);
     
                 if(this.grid[i][j] == '1' && numNeighbors < 2){
-                    newgrid[i][j] = '0';
+                    temp[i][j] = '0';
                 }
                 if(this.grid[i][j] == '1' && numNeighbors > 3){
-                    newgrid[i][j] = '0';
+                    temp[i][j] = '0';
                 } 
                 if(this.grid[i][j] == '0' && numNeighbors == 3){
-                    newgrid[i][j] = '1';
+                    temp[i][j] = '1';
                 }
                 if(this.grid[i][j] == '1' && (numNeighbors == 2 || numNeighbors == 3)){
-                    newgrid[i][j] = '1';
+                    temp[i][j] = '1';
                 }
             }
         }
+        this.grid = temp;
     }
 
     // Returns the number of neighbors for cell at this.grid[i][j]
