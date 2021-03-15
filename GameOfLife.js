@@ -44,7 +44,7 @@ class GameOfLife {
         }
     }
 
-    // Saves the current grid values to the file specified.
+    //  Saves the current grid values to the file specified.
     saveGrid(file) {
         let data = this.rows + ' ' + this.cols;
 
