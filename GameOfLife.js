@@ -120,7 +120,7 @@ class GameOfLife {
 			    if(currentCol < 0 || currentCol >= this.cols){
 				    continue;
 			    }
-			    if(this.grid[currentRow][currentCol] == '1'){
+			    if(this.grid[currentRow][currentCol] == 1){
 				    neighbors++;
 			    }
 		    }
