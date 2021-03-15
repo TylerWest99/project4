@@ -2,7 +2,7 @@
 
 /**
  *  Game of Life
- *  Author(s): Your Name(s)
+ *  Author(s): Tyler West
  */
 
 /*
@@ -36,7 +36,12 @@ class GameOfLife {
         }
 
         // TO DO: Fill this.grid with the remaining values in the tokens array
-
+        // Done
+        for(var i = 0; i < this.rows; i++){
+            for(var j = 0; j < this.cols; j++){
+                this.grid[i][j] = parseInt(tokens.shift());
+            }
+        }
     }
 
     // Saves the current grid values to the file specified.
@@ -44,6 +49,11 @@ class GameOfLife {
         let data = this.rows + ' ' + this.cols;
 
         // TO DO: append the values in this.grid to data
+        for(var i = 0; i < this.rows; i++){
+            for(var j = 0; j < this.cols; j++){
+                data = data + " " + this.grid[i][j];
+            }
+        }
 
         data += '\n';
         fs.writeFileSync(file, data);
