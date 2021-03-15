@@ -76,7 +76,26 @@ class GameOfLife {
         }
 
         // TO DO: using values in this.grid, set temp grid to next generation
-
+        var numNeighbors = 0;
+        for(var i = 0; i < rows; i++){
+            for(var j = 0; j < cols; j++){
+                //sets num of neighbors
+                numNeighbors = nbrOfNeighbors(i,j,rows,cols,grid);
+    
+                if(grid[i][j] == '1' && numNeighbors < 2){
+                    temp[i][j] = '0';
+                }
+                if(grid[i][j] == '1' && numNeighbors > 3){
+                    temp[i][j] = '0';
+                } 
+                if(grid[i][j] == '0' && numNeighbors == 3){
+                    temp[i][j] = '1';
+                }
+                if(grid[i][j] == '1' && (numNeighbors == 2 || numNeighbors == 3)){
+                    temp[i][j] = '1';
+                }
+            }
+        }
 
         // set this.grid to temp grid
         this.grid = temp;
@@ -87,7 +106,6 @@ class GameOfLife {
         let neighbors = 0;
 
         // TO DO: determine number of neighbors of cell at this.grid[i][j]
-
 	    for(var rowOff = -1; rowOff <= 1; rowOff++){
 		    for(var colOff = -1; colOff <= 1; colOff++){
 			    //does nothing for itself
@@ -96,14 +114,12 @@ class GameOfLife {
 			    }
 			    var currentRow = i + rowOff;
 			    var currentCol = j + colOff;
-
 			    if(currentRow < 0 || currentRow >= this.rows){
 				    continue;
 			    }
 			    if(currentCol < 0 || currentCol >= this.cols){
 				    continue;
 			    }
-
 			    if(this.grid[currentRow][currentCol] == '1'){
 				    neighbors++;
 			    }
