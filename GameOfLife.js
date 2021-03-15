@@ -60,6 +60,13 @@ class GameOfLife {
     }
 
     // Mutates the grid to next generation
+	/*
+		A live cell with less than two live neighbors dies -> grid[i][j] == '1' and neighbors < 2 to '0'
+		A live cell with two or three live neighbors lives -> nothing
+		A live cell with more than three neighbors dies -> grid[i][j] == '1' and neighbors > 3 to '0'
+		A dead cell with three live neighbors becomes live -> grid[i][j] == '0' and neighbors == 3 to '1'
+	*/
+
     mutate() {
         // make a copy of grid and fill it with zeros
         let temp = new Array(this.rows);
@@ -80,7 +87,28 @@ class GameOfLife {
         let neighbors = 0;
 
         // TO DO: determine number of neighbors of cell at this.grid[i][j]
-        
+
+	    for(var rowOff = -1; rowOff <= 1; rowOff++){
+		    for(var colOff = -1; colOff <= 1; colOff++){
+			    //does nothing for itself
+			    if(rowOff == 0 && colOff == 0){
+				    continue;
+			    }
+			    var currentRow = i + rowOff;
+			    var currentCol = j + colOff;
+
+			    if(currentRow < 0 || currentRow >= rows){
+				    continue;
+			    }
+			    if(currentCol < 0 || currentCol >= cols){
+				    continue;
+			    }
+
+			    if(grid[currentRow][currentCol] == '1'){
+				    neighbors++;
+			    }
+		    }
+	    }
         return neighbors;
     }
 
