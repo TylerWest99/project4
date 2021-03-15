@@ -97,10 +97,10 @@ class GameOfLife {
 			    var currentRow = i + rowOff;
 			    var currentCol = j + colOff;
 
-			    if(currentRow < 0 || currentRow >= rows){
+			    if(currentRow < 0 || currentRow >= this.rows){
 				    continue;
 			    }
-			    if(currentCol < 0 || currentCol >= cols){
+			    if(currentCol < 0 || currentCol >= this.cols){
 				    continue;
 			    }
 
