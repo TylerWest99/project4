@@ -85,22 +85,22 @@ class GameOfLife {
         }
 
         var numNeighbors = 0;
-        for(var i = 0; i < rows; i++){
-            for(var j = 0; j < cols; j++){
+        for(var i = 0; i < this.rows; i++){
+            for(var j = 0; j < this.cols; j++){
 
                 //sets num of neighbors
                 numNeighbors = getNeighbors(i,j);
     
-                if(grid[i][j] == '1' && numNeighbors < 2){
+                if(this.grid[i][j] == '1' && numNeighbors < 2){
                     newgrid[i][j] = '0';
                 }
-                if(grid[i][j] == '1' && numNeighbors > 3){
+                if(this.grid[i][j] == '1' && numNeighbors > 3){
                     newgrid[i][j] = '0';
                 } 
-                if(grid[i][j] == '0' && numNeighbors == 3){
+                if(this.grid[i][j] == '0' && numNeighbors == 3){
                     newgrid[i][j] = '1';
                 }
-                if(grid[i][j] == '1' && (numNeighbors == 2 || numNeighbors == 3)){
+                if(this.grid[i][j] == '1' && (numNeighbors == 2 || numNeighbors == 3)){
                     newgrid[i][j] = '1';
                 }
             }
