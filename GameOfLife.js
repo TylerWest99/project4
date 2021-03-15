@@ -76,29 +76,35 @@ class GameOfLife {
         }
 
         // TO DO: using values in this.grid, set temp grid to next generation
-        var numNeighbors = 0;
+        
+        //copies grid
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.cols; j++){
-                //sets num of neighbors
-                numNeighbors = this.getNeighbors(i,j);
-    
-                if(this.grid[i][j] == 1 && numNeighbors < 2){
-                    temp[i][j] = 0;
-                }
-                if(this.grid[i][j] == 1 && numNeighbors > 3){
-                    temp[i][j] = 0;
-                } 
-                if(this.grid[i][j] == 1 && numNeighbors == 3){
-                    temp[i][j] = 1;
-                }
-                if(this.grid[i][j] == 1 && (numNeighbors == 2 || numNeighbors == 3)){
-                    temp[i][j] = 1;
-                }
+                temp[i][j] = this.grid[i][j];
             }
         }
 
-        // set this.grid to temp grid
-        this.grid = temp;
+        var numNeighbors = 0;
+        for(var i = 0; i < rows; i++){
+            for(var j = 0; j < cols; j++){
+
+                //sets num of neighbors
+                numNeighbors = getNeighbors(i,j);
+    
+                if(grid[i][j] == '1' && numNeighbors < 2){
+                    newgrid[i][j] = '0';
+                }
+                if(grid[i][j] == '1' && numNeighbors > 3){
+                    newgrid[i][j] = '0';
+                } 
+                if(grid[i][j] == '0' && numNeighbors == 3){
+                    newgrid[i][j] = '1';
+                }
+                if(grid[i][j] == '1' && (numNeighbors == 2 || numNeighbors == 3)){
+                    newgrid[i][j] = '1';
+                }
+            }
+        }
     }
 
     // Returns the number of neighbors for cell at this.grid[i][j]
