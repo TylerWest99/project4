@@ -91,17 +91,17 @@ class GameOfLife {
                 //sets num of neighbors
                 numNeighbors = this.getNeighbors(i,j);
     
-                if(this.grid[i][j] == '1' && numNeighbors < 2){
-                    temp[i][j] = '0';
+                if(this.grid[i][j] == 1 && numNeighbors < 2){
+                    temp[i][j] = 0;
                 }
-                if(this.grid[i][j] == '1' && numNeighbors > 3){
-                    temp[i][j] = '0';
+                if(this.grid[i][j] == 1 && numNeighbors > 3){
+                    temp[i][j] = 0;
                 } 
-                if(this.grid[i][j] == '0' && numNeighbors == 3){
-                    temp[i][j] = '1';
+                if(this.grid[i][j] == 0 && numNeighbors == 3){
+                    temp[i][j] = 1;
                 }
-                if(this.grid[i][j] == '1' && (numNeighbors == 2 || numNeighbors == 3)){
-                    temp[i][j] = '1';
+                if(this.grid[i][j] == 1 && (numNeighbors == 2 || numNeighbors == 3)){
+                    temp[i][j] = 1;
                 }
             }
         }
