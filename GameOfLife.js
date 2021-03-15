@@ -80,7 +80,7 @@ class GameOfLife {
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.cols; j++){
                 //sets num of neighbors
-                numNeighbors = nbrOfNeighbors(i,j,this.rows,this.cols,grid);
+                numNeighbors = getNeighbors(i,j);
     
                 if(this.grid[i][j] == '1' && numNeighbors < 2){
                     temp[i][j] = '0';
